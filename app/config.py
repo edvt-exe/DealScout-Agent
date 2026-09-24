@@ -4,7 +4,7 @@ from functools import lru_cache
 class Settings:
     anthropic_api_key: str = os.environ.get("ANTHROPIC_API_KEY", "")
     serpapi_key: str = os.environ.get("SERPAPI_KEY", "")
-    claude_model: str = os.environ.get("CLAUDE_MODEL", "claude-sonnet-4-6")
+    claude_model: str = os.environ.get("CLAUDE_MODEL", "claude-sonnet-5")
     max_stores: int = int(os.environ.get("MAX_STORES", "8"))
 
     def validate(self) -> None:
