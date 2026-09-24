@@ -95,7 +95,7 @@ Returns `{ "status": "ok" }` — used for uptime checks.
 |---|---|---|---|
 | `ANTHROPIC_API_KEY` | yes | — | Anthropic API key |
 | `SERPAPI_KEY` | yes | — | SerpAPI key |
-| `CLAUDE_MODEL` | no | `claude-sonnet-4-6` | Model used for orchestration |
+| `CLAUDE_MODEL` | no | `claude-sonnet-5` | Model used for orchestration |
 | `MAX_STORES` | no | `8` | Max raw shopping results passed to Claude per search call |
 
 ## Project structure
