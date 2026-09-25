@@ -65,7 +65,8 @@ async def run_pricing_agent(request: SearchRequest) -> list[ResultItem]:
     for _ in range(MAX_TOOL_ROUNDS):
         response = client.messages.create(
             model=settings.claude_model,
-            max_tokens=2000,
+            max_tokens=4000,
+            thinking={"type": "disabled"},
             system=SYSTEM_PROMPT,
             tools=[SEARCH_TOOL, RETURN_RESULTS_TOOL],
             messages=messages,

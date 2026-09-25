@@ -6,6 +6,7 @@ from app.config import get_settings
 from app.schemas import SearchRequest, SearchResponse
 
 app = FastAPI(title="Pricing Agent", version="0.1.0")
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -25,7 +26,11 @@ async def search(request: SearchRequest):
     except RuntimeError as exc:
         raise HTTPException(status_code=500, detail=str(exc)) from exc
 
-    results = await run_pricing_agent(request)
+    try:
+        results = await run_pricing_agent(request)
+    except Exception as exc:
+        raise HTTPException(status_code=502, detail=f"{type(exc).__name__}: {exc}") from exc
+
     if not results:
         raise HTTPException(
             status_code=404,
